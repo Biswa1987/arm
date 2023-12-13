@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    company: globant
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      company: globant
+  template:
+    metadata:
+      labels:
+        company: globant
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
